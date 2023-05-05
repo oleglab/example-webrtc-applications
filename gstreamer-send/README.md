@@ -13,11 +13,12 @@ This example requires you have GStreamer installed, these are the supported plat
 
 ### Download gstreamer-send
 ```
-go get github.com/pion/example-webrtc-applications/gstreamer-send
+export GO111MODULE=on
+go get github.com/pion/example-webrtc-applications/v3/gstreamer-send
 ```
 
 ### Open gstreamer-send example page
-[jsfiddle.net](https://jsfiddle.net/z7ms3u5r/) you should see two text-areas and a 'Start Session' button
+[jsfiddle.net](https://jsfiddle.net/z17q28cd/) you should see two text-areas and a 'Start Session' button
 
 ### Run gstreamer-send with your browsers SessionDescription as stdin
 In the jsfiddle the top textarea is your browser, copy that and:

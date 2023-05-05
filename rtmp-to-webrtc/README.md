@@ -9,7 +9,7 @@ of VP8 with H264 in `main.go`
 ### Download rtmp-to-webrtc
 ```
 export GO111MODULE=on
-go get github.com/pion/webrtc/v3/examples/rtmp-to-webrtc
+go get github.com/pion/example-webrtc-applications/v3/rtmp-to-webrtc
 ```
 
 ### Open jsfiddle example page
@@ -31,7 +31,7 @@ On startup you will get a message `Waiting for RTP Packets`, you can use any sof
 
 #### ffmpeg
 ```
-ffmpeg -i '$RTMP_URL' -an -vcodec libvpx -cpu-used 5 -deadline 1 -g 10 -error-resilient 1 -auto-alt-ref 1 -f rtp rtp://127.0.0.1:5004 -vn -c:a libopus -f rtp rtp:/127.0.0.1:5006
+ffmpeg -i '$RTMP_URL' -an -vcodec libvpx -cpu-used 5 -deadline 1 -g 10 -error-resilient 1 -auto-alt-ref 1 -f rtp rtp://127.0.0.1:5004?pkt_size=1200 -vn -c:a libopus -f rtp rtp:/127.0.0.1:5006?pkt_size=1200
 ```
 
 ### Input rtmp-to-webrtc's SessionDescription into your browser

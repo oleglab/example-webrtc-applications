@@ -9,8 +9,8 @@ import (
 	"github.com/pion/rtcp"
 	"github.com/pion/webrtc/v3"
 
-	gst "github.com/pion/example-webrtc-applications/internal/gstreamer-sink"
-	"github.com/pion/example-webrtc-applications/internal/signal"
+	gst "github.com/pion/example-webrtc-applications/v3/internal/gstreamer-sink"
+	"github.com/pion/example-webrtc-applications/v3/internal/signal"
 )
 
 // gstreamerReceiveMain is launched in a goroutine because the main thread is needed
@@ -49,7 +49,7 @@ func gstreamerReceiveMain() {
 
 		codecName := strings.Split(track.Codec().RTPCodecCapability.MimeType, "/")[1]
 		fmt.Printf("Track has started, of type %d: %s \n", track.PayloadType(), codecName)
-		pipeline := gst.CreatePipeline(codecName)
+		pipeline := gst.CreatePipeline(track.PayloadType(), strings.ToLower(codecName))
 		pipeline.Start()
 		buf := make([]byte, 1400)
 		for {
